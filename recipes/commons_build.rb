@@ -170,7 +170,7 @@ bash 'compile_openresty_source' do
   cwd ::File.dirname(src_filepath)
   code <<-EOH
     tar zxf #{::File.basename(src_filepath)} -C #{::File.dirname(src_filepath)} &&
-    cd #{node['openresty']['source']['name']} &&
+    cd  #{node['openresty']['source']['name']}-#{node['openresty']['source']['version']} &&
     #{subreq_opts}
     #{pcre_opts}
     ./configure #{node.run_state['openresty_configure_flags'].join(' ')} &&
